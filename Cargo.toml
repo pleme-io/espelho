@@ -1,6 +1,6 @@
 [package]
 name = "espelho"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.89.0"
 description = "espelho (mirror) — typed terminal-conformance contract: hosts answer VT queries, guests survive any host"
