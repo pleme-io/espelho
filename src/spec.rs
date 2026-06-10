@@ -38,12 +38,18 @@ pub struct ConformanceSpec {
 #[derive(Debug, thiserror::Error)]
 pub enum SpecError {
     #[error("environment error in phase {phase}: {message}")]
-    Env { phase: &'static str, message: String },
+    Env {
+        phase: &'static str,
+        message: String,
+    },
 }
 
 /// Drive `spec` against `env`. Pure with respect to everything but the
 /// environment: same env behavior ⇒ same outcome.
-pub fn apply<E: TermEnv>(spec: &ConformanceSpec, env: &mut E) -> Result<ConformanceOutcome, SpecError> {
+pub fn apply<E: TermEnv>(
+    spec: &ConformanceSpec,
+    env: &mut E,
+) -> Result<ConformanceOutcome, SpecError> {
     let mut transcript: Vec<u8> = Vec::new();
     let mut scan = 0usize;
     let mut exchanges: Vec<Exchange> = Vec::new();
@@ -293,6 +299,12 @@ mod tests {
         };
         let out = apply(&spec(persona), &mut env).unwrap();
         assert_eq!(out.exchanges.len(), 3);
-        assert_eq!(out.exchanges.iter().filter(|e| e.answered.is_some()).count(), 1);
+        assert_eq!(
+            out.exchanges
+                .iter()
+                .filter(|e| e.answered.is_some())
+                .count(),
+            1
+        );
     }
 }

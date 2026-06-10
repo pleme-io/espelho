@@ -1,1 +1,5 @@
-target/
+/target
+/result
+/result-*
+.direnv/
+Cargo.build-spec.json
