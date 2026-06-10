@@ -1,0 +1,22 @@
+[package]
+name = "espelho"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89.0"
+description = "espelho (mirror) — typed terminal-conformance contract: hosts answer VT queries, guests survive any host"
+license = "MIT"
+authors = ["Pleme Team <team@pleme.io>"]
+repository = "https://github.com/pleme-io/espelho"
+homepage = "https://github.com/pleme-io/espelho"
+keywords = ["terminal", "vt100", "testing", "conformance", "pty"]
+categories = ["development-tools::testing"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+thiserror = "2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
