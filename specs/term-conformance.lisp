@@ -37,9 +37,17 @@
   ;;                          is answered (the APC-black-hole class-killer)
   ;;   answer-latency       — answers within :budget-ms of the query
   ;;                          completing on the wire
+  ;;   keyboard-state-scoped — kitty keyboard flags a command pushed are
+  ;;                          dropped when its shell reports the command
+  ;;                          end (OSC 133 D), unless the host is configured
+  ;;                          otherwise. A program that exits without popping
+  ;;                          must not leave the next prompt receiving CSI 13 u
+  ;;                          for Enter (2026-10-20: mado, tear).
   :host-invariants
     ((:name :answer-every-query :budget-ms 100)
-     (:name :answer-latency     :budget-ms 100))
+     (:name :answer-latency     :budget-ms 100)
+     (:name :keyboard-state-scoped :trigger "\x1b]133;D"
+            :hosts (:mado-vt :tear-grid)))
 
   ;; GUEST invariants (frost, frostmourne, escriba-tui):
   ;;   never-fatal     — no persona may kill the guest (E2)
