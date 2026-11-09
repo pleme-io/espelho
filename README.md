@@ -11,9 +11,8 @@ mado / frost / frostmourne / escriba together-and-apart matrix.
 
 ## Where this is going
 
-espelho is the **seed of the conformance half** of
-[`theory/NATURALIZE-TERMINAL.md`](https://github.com/pleme-io/theory/blob/main/NATURALIZE-TERMINAL.md),
-and it is already the right shape — a typed border, a `(def…)` spec, an `apply`
+espelho is the **seed of the conformance half** of a naturalized
+terminal, and it is already the right shape — a typed border, a `(def…)` spec, an `apply`
 interpreter over a mockable `TermEnv`, every persona derived from a lived
 incident. What it is not is a **sequence catalog**: six `VtQuery` variants cover
 the host/guest query-answer axis, which is one axis of a vocabulary with ~1000
